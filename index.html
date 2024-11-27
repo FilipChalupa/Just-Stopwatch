@@ -115,6 +115,12 @@
 
 				loop()
 
+				document.addEventListener('keydown', ({ key }) => {
+					if (key === 'r') {
+						window.location.reload()
+					}
+				})
+
 				if ('serviceWorker' in navigator) {
 					navigator.serviceWorker.register('serviceWorker.js')
 				}
