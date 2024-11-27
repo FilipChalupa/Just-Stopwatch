@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg width="24" height="24" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
- <g stroke="#000">
-  <circle cx="12" cy="12" r="11" fill="#fff" stroke-width="1.0619"/>
-  <path d="m11.96 12.087 0.55425-5.2894" stroke-width="1.034"/>
-  <path d="m19.35 9.4894-7.3897 2.5974" stroke-width="1.0016"/>
+ <g transform="matrix(1.0729 0 0 1.0729 -.8747 -.88078)">
+  <g stroke="#000">
+   <circle cx="12" cy="12" r="9.2857" fill="#fff" stroke-width=".97232"/>
+   <path d="m11.966 12.073 0.46787-4.4651" stroke-width=".94678"/>
+   <path d="m18.205 9.8807-6.2381 2.1926" stroke-width=".91711"/>
+  </g>
+  <circle cx="12" cy="12" r=".84416" stroke-width=".84416"/>
+  <rect x="10.711" y="1.2685" width="2.578" height="1.2685" stroke-width="3.874" style="paint-order:markers fill stroke"/>
  </g>
- <circle cx="12" cy="12" r="1"/>
  <rect transform="scale(-1)" x="-11.96" y="-12.171" width="8.2304" height=".30203" fill="#f00" stroke-linejoin="round" stroke-width="18.898" style="paint-order:stroke fill markers"/>
  <circle cx="12" cy="12" r=".54616" fill="#f00" stroke-width=".54616"/>
 </svg>
