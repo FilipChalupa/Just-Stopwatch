@@ -4,8 +4,147 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Just Stopwatch</title>
+		<meta name="description" content="Measure time." />
+		<link rel="shortcut icon" href="icon/favicon.svg" />
+		<link rel="manifest" href="webmanifest.json" />
+		<meta
+			name="google-site-verification"
+			content="juB3v44wIqq2EGzxkCQS3amYwQUsdv282reyul1JBEc"
+		/>
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta
+			property="og:image"
+			content="https://just-stopwatch.eu/og-image.jpg"
+		/>
+		<meta name="color-scheme" content="light dark" />
+		<meta
+			name="theme-color"
+			media="(prefers-color-scheme: light)"
+			content="white"
+		/>
+		<meta
+			name="theme-color"
+			media="(prefers-color-scheme: dark)"
+			content="black"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans&display=block&text=0123456789:"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				color: black;
+				background-color: white;
+				font-size: 20vw;
+			}
+
+			@media (min-aspect-ratio: 12/5) {
+				body {
+					font-size: 48vh;
+				}
+			}
+
+			@media (prefers-color-scheme: dark) {
+				body {
+					color: white;
+					background-color: black;
+				}
+			}
+
+			.time {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-variant-numeric: tabular-nums;
+				font-family: 'Open Sans', sans-serif;
+				font-size: 1em;
+			}
+
+			.time.view-hideHours {
+				font-size: 1.5em;
+			}
+		</style>
 	</head>
+
 	<body>
-		@TODO
+		<time class="time">…</time>
+		<script>
+			;(() => {
+				const $time = document.querySelector('.time')
+				const hideHours =
+					new URLSearchParams(window.location.search).get('hideHours') !== null
+
+				if (hideHours) {
+					$time.classList.add('view-hideHours')
+				}
+
+				const start = new Date()
+
+				const twoDigits = (input) => {
+					return input.toString().padStart(2, '0')
+				}
+
+				const updateTime = (elapsedMilliseconds) => {
+					const isUserSelecting = !document.getSelection().isCollapsed
+					if (isUserSelecting) {
+						return
+					}
+					const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000)
+
+					const hours = Math.floor(elapsedSeconds / (60 * 60))
+					const minutes = Math.floor(elapsedSeconds / 60)
+					const seconds = elapsedSeconds % 60
+
+					$time.innerText = `${
+						hideHours ? '' : `${twoDigits(hours)}:`
+					}${twoDigits(minutes)}:${twoDigits(seconds)}`
+				}
+
+				const loop = () => {
+					const elapsedMilliseconds = new Date().getTime() - start.getTime()
+					updateTime(elapsedMilliseconds)
+					const nextTick = Math.max(1, 1000 - (elapsedMilliseconds % 1000))
+					setTimeout(loop, nextTick)
+				}
+
+				loop()
+
+				if ('serviceWorker' in navigator) {
+					navigator.serviceWorker.register('serviceWorker.js')
+				}
+
+				const runWakeLock = async () => {
+					let wakeLock = null
+					const requestWakeLock = async () => {
+						try {
+							wakeLock = await navigator.wakeLock.request('screen')
+						} catch (error) {
+							console.error(error)
+						}
+						if (wakeLock) {
+							wakeLock.addEventListener('release', () => {
+								wakeLock = null
+							})
+						}
+					}
+					await requestWakeLock()
+					document.addEventListener('visibilitychange', async () => {
+						if (wakeLock === null && document.visibilityState === 'visible') {
+							await requestWakeLock()
+						}
+					})
+				}
+
+				if ('wakeLock' in navigator) {
+					runWakeLock()
+				}
+			})()
+		</script>
 	</body>
 </html>
