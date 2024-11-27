@@ -15,7 +15,7 @@ for i in "${sizes[@]}"; do
 	rsvg-convert -w $i -h $i "$directory$iconMaskable" -o "$directory$name"
 done
 
-shortcuts=("hhmm" "hhmmss")
+shortcuts=("mmss" "hhmmss")
 
 for i in "${shortcuts[@]}"; do
 	echo "Resize shortcut $i"

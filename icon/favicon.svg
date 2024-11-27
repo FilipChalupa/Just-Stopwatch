@@ -1,9 +1,10 @@
 <svg width="24" height="24" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
- <g stroke="#000">
-  <circle cx="12" cy="12" r="9.2857" fill="#fff" stroke-width=".97232"/>
-  <path d="m11.966 12.073 0.46787-4.4651" stroke-width=".94678"/>
-  <path d="m18.205 9.8807-6.2381 2.1926" stroke-width=".91711"/>
- </g>
+ <circle cx="12" cy="12" r="9.2857" fill="#fff" stroke="#000" stroke-width=".97232"/>
+ <path d="m18.205 9.8807-6.2381 2.1926" stroke="#000" stroke-width=".91711"/>
  <circle cx="12" cy="12" r=".84416" stroke-width=".84416"/>
  <rect x="10.711" y="1.2685" width="2.578" height="1.2685" stroke-width="3.874" style="paint-order:markers fill stroke"/>
+ <g transform="translate(-4.2957)" fill="#f00">
+  <rect transform="scale(-1)" x="-16.23" y="-12.151" width="8.2304" height=".30203" stroke-linejoin="round" stroke-width="18.898" style="paint-order:stroke fill markers"/>
+  <circle cx="16.27" cy="12" r=".54616" stroke-width=".54616"/>
+ </g>
 </svg>
