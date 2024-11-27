@@ -9,7 +9,7 @@
 	"categories": ["productivity", "utilities"],
 	"shortcuts": [
 		{
-			"name": "HH:MM",
+			"name": "MM:SS",
 			"url": "./",
 			"icons": [
 				{
