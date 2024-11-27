@@ -63,11 +63,11 @@
 				align-items: center;
 				font-variant-numeric: tabular-nums;
 				font-family: 'Open Sans', sans-serif;
-				font-size: 1em;
+				font-size: 1.5em;
 			}
 
-			.time.view-hideHours {
-				font-size: 1.5em;
+			.time.view-showHours {
+				font-size: 1em;
 			}
 		</style>
 	</head>
@@ -77,11 +77,11 @@
 		<script>
 			;(() => {
 				const $time = document.querySelector('.time')
-				const hideHours =
-					new URLSearchParams(window.location.search).get('hideHours') !== null
+				const showHours =
+					new URLSearchParams(window.location.search).get('showHours') !== null
 
-				if (hideHours) {
-					$time.classList.add('view-hideHours')
+				if (showHours) {
+					$time.classList.add('view-showHours')
 				}
 
 				const start = new Date()
@@ -102,7 +102,7 @@
 					const seconds = elapsedSeconds % 60
 
 					$time.innerText = `${
-						hideHours ? '' : `${twoDigits(hours)}:`
+						showHours ? `${twoDigits(hours)}:` : ''
 					}${twoDigits(minutes)}:${twoDigits(seconds)}`
 				}
 

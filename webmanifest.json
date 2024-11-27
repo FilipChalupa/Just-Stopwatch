@@ -10,7 +10,7 @@
 	"shortcuts": [
 		{
 			"name": "HH:MM",
-			"url": "./?hideHours",
+			"url": "./",
 			"icons": [
 				{
 					"src": "icon/shortcut-mmss.png",
@@ -22,7 +22,7 @@
 		},
 		{
 			"name": "HH:MM:SS",
-			"url": "./",
+			"url": "./?showHours",
 			"icons": [
 				{
 					"src": "icon/shortcut-hhmmss.png",
