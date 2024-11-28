@@ -97,12 +97,20 @@
 					}
 					const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000)
 
-					const hours = Math.floor(elapsedSeconds / (60 * 60))
-					const minutes = Math.floor(elapsedSeconds / 60)
+					const hours = showHours
+						? Math.floor(elapsedSeconds / (60 * 60))
+						: null
+					const minutes = (() => {
+						const all = Math.floor(elapsedSeconds / 60)
+						if (showHours) {
+							return all % 60
+						}
+						return all
+					})()
 					const seconds = elapsedSeconds % 60
 
 					$time.innerText = `${
-						showHours ? `${twoDigits(hours)}:` : ''
+						hours === null ? '' : `${twoDigits(hours)}:`
 					}${twoDigits(minutes)}:${twoDigits(seconds)}`
 				}
 
