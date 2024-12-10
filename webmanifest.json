@@ -182,12 +182,12 @@
 	"related_applications": [],
 	"screenshots": [
 		{
-			"src": "https://api.apiflash.com/v1/urltoimage?access_key=a3d01743a9a04ac68f04adf0038bfdfb&format=jpeg&height=1041&response_type=image&ttl=604800&url=https%3A%2F%2Fjust-countdown.eu%2F&width=586",
+			"src": "https://api.apiflash.com/v1/urltoimage?access_key=a3d01743a9a04ac68f04adf0038bfdfb&format=jpeg&height=1041&response_type=image&ttl=604800&url=https%3A%2F%2Fjust-stopwatch.eu%2F&width=586",
 			"sizes": "586x1041",
 			"type": "image/jpeg"
 		},
 		{
-			"src": "https://api.apiflash.com/v1/urltoimage?access_key=a3d01743a9a04ac68f04adf0038bfdfb&format=jpeg&height=1041&response_type=image&ttl=604800&url=https%3A%2F%2Fjust-countdown.eu%2F%3FhideSeconds&width=586",
+			"src": "https://api.apiflash.com/v1/urltoimage?access_key=a3d01743a9a04ac68f04adf0038bfdfb&format=jpeg&height=1041&response_type=image&ttl=604800&url=https%3A%2F%2Fjust-stopwatch.eu%2F%3FshowHours&width=586",
 			"sizes": "586x1041",
 			"type": "image/jpeg"
 		}
